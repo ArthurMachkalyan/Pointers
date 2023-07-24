@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
 
 #define tab "\t"
@@ -21,27 +21,27 @@ void pop_front(int*& arr, int& size);
 void main() {
 	setlocale(LC_ALL, "");
 	int n;
-	cout << "Ââåäèòå ðàçìåð ìàññèâà: "; cin >> n;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¼Ð°ÑÑÐ¸Ð²Ð°: "; cin >> n;
 	cout << endl;
 	int* arr = new int[n];
 	FillRand(arr, n); 
 	Print(arr, n);
 	int value;
-	cout << "Ââåäèòå äîáàâî÷íîå çíà÷åíèå: "; cin >> value;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð¾Ð±Ð°Ð²Ð¾Ñ‡Ð½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ: "; cin >> value;
 	push_back(arr, n, value);
-	cout << "Ââåäèòå íà÷àëüíîå çíà÷åíèå: "; cin >> value;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ñ‡Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ: "; cin >> value;
 	push_front(arr, n, value);
-	cout << "Ââåäèòå çíà÷åíèå äëÿ äîáàâëåíèÿ: "; cin >> value;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ: "; cin >> value;
 	cout << endl;
 	int index;
-	cout << "Ââåäèòå èíäåêñ: "; cin >> index;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ: "; cin >> index;
 	insert(arr, n, value, index);
-	cout << "Ââåäèòå èíäåêñ ýëåìåíòà, êîòîðûé õîòèòå óäàëèòü: "; cin >> index;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ: "; cin >> index;
 	cout << endl;
 	erase(arr, n, index);
-	cout << "Óäàëåíèå ïîñëåäíåãî çíà÷åíèÿ" << endl;
+	cout << "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ" << endl;
 	pop_back(arr, n);
-	cout << "Óäàëåíèå ïåðâîãî çíà÷åíèÿ" << endl;
+	cout << "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð¿ÐµÑ€Ð²Ð¾Ð³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ" << endl;
 	pop_front(arr, n);
 
 	delete[] arr;
@@ -50,8 +50,8 @@ void main() {
 void FillRand(int arr[], const int n) {
 	for (int i = 0; i < n; i++)
 	{
-		// Îáðàùåíèå ê ýëåìåíòàì ìàññèâà ÷åðåç àðèôìåòèêó óêàçàòåëåé
-		// è îïåðàòîð ðàçûìåíîâûâûàíèÿ 
+		// ÐžÐ±Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ðµ Ðº ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ð¼ Ð¼Ð°ÑÑÐ¸Ð²Ð° Ñ‡ÐµÑ€ÐµÐ· Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸ÐºÑƒ ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÐµÐ¹
+		// Ð¸ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ Ñ€Ð°Ð·Ñ‹Ð¼ÐµÐ½Ð¾Ð²Ñ‹Ð²Ñ‹Ð°Ð½Ð¸Ñ 
 		*(arr + i) = rand() % 100;
 	}
 }
@@ -59,9 +59,9 @@ void FillRand(int arr[], const int n) {
 void Print(int arr[], const int n) {
 	for (int i = 0; i < n; i++)
 	{
-		// Îáðàùåíèå ê ýëåìåíòàì ìàññèâà ÷åðåç îïåðàòîð èíäåêñèðîâàíèÿ
+		// ÐžÐ±Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ðµ Ðº ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ð¼ Ð¼Ð°ÑÑÐ¸Ð²Ð° Ñ‡ÐµÑ€ÐµÐ· Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ Ð¸Ð½Ð´ÐµÐºÑÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ
 		cout << arr[i] << tab;
-		// [] - îïåðàòîð èíäåêñèðîâàíèÿ (subscript operator)
+		// [] - Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ Ð¸Ð½Ð´ÐµÐºÑÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ (subscript operator)
 	}
 	cout << endl;
 }
