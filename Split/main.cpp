@@ -5,7 +5,7 @@ using namespace std;
 #define delimetr "\n---------------------------------------\n"
 
 void FillRand(int arr[], const int size);
-void Print(int arr[], int size);
+void print(int arr[], int size);
 
 
 void main() {
@@ -13,7 +13,7 @@ void main() {
 	const int n = 10;
 	int arr[n];
 	FillRand(arr, n);
-	Print(arr, n);
+	print(arr, n);
 
 	//1) Определяем количество четных и нечетных значений исходного массива
 	int even_count = 0; // четные
@@ -35,8 +35,8 @@ void main() {
 	}
 
 	//4) Выводим результат
-	Print(even_arr, even_count);
-	Print(odd_arr, odd_count);
+	print(even_arr, even_count);
+	print(odd_arr, odd_count);
 	
 	
 	delete[] even_arr;
@@ -51,7 +51,7 @@ void FillRand(int arr[], const int size) {
 	}
 }
 
-void Print(int arr[], int size) {
+void print(int arr[], int size) {
 	for (int i = 0; i < size; i++)
 	{
 		cout << arr[i] << tab;

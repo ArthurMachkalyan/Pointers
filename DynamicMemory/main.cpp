@@ -5,7 +5,7 @@ using namespace std;
 #define delimetr "\n-------------------------------------\n"
 
 void FillRand(int arr[], const int n);
-void Print(int arr[], const int n);
+void print(int arr[], const int n);
 
 
 void push_back(int*& arr, int& size, const int value);
@@ -25,7 +25,7 @@ void main() {
 	cout << endl;
 	int* arr = new int[n];
 	FillRand(arr, n); 
-	Print(arr, n);
+	print(arr, n);
 	int value;
 	cout << "Введите добавочное значение: "; cin >> value;
 	push_back(arr, n, value);
@@ -43,7 +43,7 @@ void main() {
 	pop_back(arr, n);
 	cout << "Удаление первого значения" << endl;
 	pop_front(arr, n);
-
+	
 	delete[] arr;
 }
 
@@ -56,7 +56,7 @@ void FillRand(int arr[], const int n) {
 	}
 }
 
-void Print(int arr[], const int n) {
+void print(int arr[], const int n) {
 	for (int i = 0; i < n; i++)
 	{
 		// Обращение к элементам массива через оператор индексирования
@@ -76,21 +76,21 @@ void push_back(int*& arr, int& size, const int value) {
 	arr = buffer;
 	arr[size] = value;
 	size++;
-	Print(arr, size);
+	print(arr, size);
 
 }
 
 void push_front(int*& arr, int& size, const int value) {
 	int* buffer = new int[size + 1];
 	buffer[0] = value;
-	for (int i = 1; i < size + 1; i++)
+	size++;
+	for (int i = 1; i < size; i++)
 	{
 		buffer[i] = arr[i-1];
 	}
 	delete[] arr;
 	arr = buffer;
-	size++;
-	Print(arr, size);
+	print(arr, size);
 }
 
 void pop_back(int*& arr, int& size) {
@@ -102,7 +102,7 @@ void pop_back(int*& arr, int& size) {
 	}
 	delete[] arr;
 	arr = buffer;
-	Print(arr, size);
+	print(arr, size);
 }
 
 void pop_front(int*& arr, int& size) {
@@ -114,7 +114,7 @@ void pop_front(int*& arr, int& size) {
 	}
 	delete[] arr;
 	arr = buffer;
-	Print(arr, size);
+	print(arr, size);
 }
 
 void insert(int*& arr, int& size, const int value, const int index) {
@@ -125,20 +125,13 @@ void insert(int*& arr, int& size, const int value, const int index) {
 	{
 	  for (int i = 0; i < size; i++)
 	  {
-		if (i < index)
-		{
-			buffer[i] = arr[i];
-		}
-		else
-		{
-			buffer[i + 1] = arr[i];
-		}
+         i < index ? buffer[i] = arr[i] : buffer[i + 1] = arr[i];
 	  }
 	delete[] arr;
 	arr = buffer;
-	Print(arr, size);
+	print(arr, size);
 	}
-	else
+	else 
 	{
 		cout << "Error: Incorrect index" << endl;
 	}
@@ -149,16 +142,9 @@ void erase(int*& arr, int& size, const int index) {
 	--size;
 	for (int i = 0; i < size; i++)
 	{
-		if (arr[i] == arr[index])
-		{
-			buffer[i] = arr[i + 1];
-		}
-		else
-		{
-			buffer[i] = arr[i];
-		}
+		arr[i] == arr[index] ? buffer[i] = arr[i + 1] : buffer[i] = arr[i];
 	}
 	delete[] arr;
 	arr = buffer;
-	Print(arr, size);
+	print(arr, size);
 }
