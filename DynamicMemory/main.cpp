@@ -94,8 +94,7 @@ void push_front(int*& arr, int& size, const int value) {
 }
 
 void pop_back(int*& arr, int& size) {
-	--size;
-	int* buffer = new int[size];
+	int* buffer = new int[--size];
 	for (int i = 0; i < size; i++)
 	{
 		buffer[i] = arr[i];
@@ -106,8 +105,7 @@ void pop_back(int*& arr, int& size) {
 }
 
 void pop_front(int*& arr, int& size) {
-	--size;
-	int* buffer = new int[size];
+	int* buffer = new int[--size];
 	for (int i = 0; i < size; i++)
 	{
 		buffer[i] = arr[i + 1];
