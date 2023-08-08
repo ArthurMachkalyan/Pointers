@@ -160,9 +160,9 @@ void main() {
 
 	cout << delimetr;
 	
-	cout << "Удаление последнего столбца: " << endl << endl;       // Ошибка HEAP 
-	pop_col_back(arr, rows, cols);
-	print(arr, rows, cols);
+	//cout << "Удаление последнего столбца: " << endl << endl;       // Ошибка HEAP 
+	//pop_col_back(arr, rows, cols);
+	//print(arr, rows, cols);
 	
 	cout << delimetr;
 
