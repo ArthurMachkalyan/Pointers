@@ -352,14 +352,7 @@ template <class T> T** insert_row(T** arr, int& rows, const int cols, const int 
 	  T** buffer = new T* [rows + 1] {};
 	  for (int i = 0; i < rows; i++)
 	  {
-	  	if (i < index)
-	  	{
-	  		buffer[i] = arr[i];
-	  	}
-	  	else
-	  	{
-	  		buffer[i + 1] = arr[i];
-	  	}
+		  i < index ? buffer[i] = arr[i] : buffer[i + 1] = arr[i];
 	  }
 	  buffer[index] = new T[cols] {};
 	  rows++;
@@ -393,14 +386,7 @@ template <class T> T** erase_row(T** arr, int& rows, const int cols, const int i
 	rows--;
 	for (int i = 0; i < rows; i++)
 	{
-		if (i < index)
-		{
-			buffer[i] = arr[i];
-		}
-		else
-		{
-			buffer[i] = arr[i + 1];
-		}
+		i < index ? buffer[i] = arr[i] : buffer[i] = arr[i + 1];
 	}
 	delete[] arr;
 	return buffer;
@@ -441,14 +427,7 @@ template <class T> void insert_col(T** arr, const int rows, int& cols, const int
 		T* buffer = new T[cols + 1] {};
 		for (int j = 0; j < cols; j++)
 		{
-		  if (j < index)
-		  {
-		  	  buffer[j] = arr[i][j];
-		  }
-		  else
-		  {
-			  buffer[j + 1] = arr[i][j];
-		  }
+			j < index ? buffer[j] = arr[i][j] : buffer[j + 1] = arr[i][j];
 		}
 	    delete[] arr[i];
 		arr[i] = buffer;
@@ -489,15 +468,8 @@ template <class T> void erase_col(T** arr, const int rows, int& cols, const int 
 	{
 		T* buffer = new T[cols - 1];
 		for (int j = 0; j < cols; j++)
-		{
-			if (j < index)
-			{
-				buffer[j] = arr[i][j];
-			}
-			else
-			{
-				buffer[j] = arr[i][j + 1];
-			}
+		{ 
+			j < index ? buffer[j] = arr[i][j] : buffer[j] = arr[i][j + 1];
 			delete[] arr[i];
 			arr[i] = buffer;
 		}
