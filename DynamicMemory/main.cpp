@@ -157,21 +157,21 @@ void main() {
 
 	cout << delimetr;
 	
-	//cout << "Удаление последнего столбца: " << endl << endl;       // Ошибка HEAP 
-	//pop_col_back(arr, rows, cols);
-	//print(arr, rows, cols);
+	cout << "Удаление последнего столбца: " << endl << endl;       
+	pop_col_back(arr, rows, cols);
+	print(arr, rows, cols);
 	
 	cout << delimetr;
 
-	/*cout << "Удаление первого столбца: " << endl << endl;  // Ошибка HEAP 
+	cout << "Удаление первого столбца: " << endl << endl;  
 	pop_col_front(arr, rows, cols);
-	print(arr, rows, cols);*/
+	print(arr, rows, cols);
 
 	cout << delimetr;
-	/*int erase_index;
+	int erase_index;
 	cout << "Введите индекс для удаления столбца: "; cin >> erase_index;
 	erase_col(arr, rows, cols, erase_index);
-	print(arr, rows, cols);*/
+	print(arr, rows, cols);
 
 
 
@@ -438,7 +438,7 @@ template <class T> void pop_col_back(T** arr, const int rows, int& cols) {
 	cols--;
 	for (int i = 0; i < rows; i++)
 	{
-		T* buffer = new T[cols - 1];
+		T* buffer = new T[cols];
 		for (int j = 0; j < cols; j++)
 		{
 			buffer[j] = arr[i][j];
@@ -452,7 +452,7 @@ template <class T> void pop_col_front(T** arr, const int rows, int& cols) {
 	cols--;
 	for (int i = 0; i < rows; i++)
 	{
-		T* buffer = new T[cols - 1];
+		T* buffer = new T[cols];
 		for (int j = 0; j < cols; j++)
 		{
 			buffer[j] = arr[i][j + 1];
@@ -466,12 +466,12 @@ template <class T> void erase_col(T** arr, const int rows, int& cols, const int 
 	cols--;
 	for (int i = 0; i < rows; i++)
 	{
-		T* buffer = new T[cols - 1];
+		T* buffer = new T[cols];
 		for (int j = 0; j < cols; j++)
 		{ 
 			j < index ? buffer[j] = arr[i][j] : buffer[j] = arr[i][j + 1];
+		}
 			delete[] arr[i];
 			arr[i] = buffer;
-		}
 	}
 }
